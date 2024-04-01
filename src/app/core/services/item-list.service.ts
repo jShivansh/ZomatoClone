@@ -10,6 +10,6 @@ export class ItemListService {
   constructor(private http: HttpClient) { }
 
   getItem(): Observable<any> {
-    return this.http.get<any>("./assets/items.json");
+    return this.http.get<any>("src/assets/items.json");
   }
 }
