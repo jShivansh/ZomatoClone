@@ -28,39 +28,49 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSignUp(){
-    const isUserExist = this.signupUser
-                        .find(user => user.email == this.signupObj.email 
-                                      // && user.password == this.loginObj.password
-                                      );
-    if(isUserExist == undefined){
-      this.signupUser.push(this.signupObj);
-      console.log(this.signupUser);
-      localStorage.setItem('signupUser', JSON.stringify(this.signupUser));
-      this.signupObj = {
-        userName: '',
-        email: '',
-        password: ''
-      };
-      alert('Signed up successfully!!!');
+    if(this.signupObj.userName === '' || this.signupObj.email=== '' || this.signupObj.password === ''){
+      alert('Put some valid input')
     }
-    else alert('User already exist!!')
+    else{
+      const isUserExist = this.signupUser
+                          .find(user => user.email == this.signupObj.email 
+                                        // && user.password == this.loginObj.password
+                                        );
+      if(isUserExist == undefined){
+        this.signupUser.push(this.signupObj);
+        console.log(this.signupUser);
+        localStorage.setItem('signupUser', JSON.stringify(this.signupUser));
+        this.signupObj = {
+          userName: '',
+          email: '',
+          password: ''
+        };
+        alert('Signed up successfully!!!');
+      }
+      else alert('User already exist!!')
+    }
   }
 
   onLogin(){
-    const isUserExist = this.signupUser
-                        .find(user => user.email == this.loginObj.email 
-                                      && user.password == this.loginObj.password);
-    // console.log(isUserExist);
-    if(isUserExist != undefined){
-      this.authService.loginUser(isUserExist.userName);
-      alert("Welcome back");
-      this.loginObj = {
-        email: '',
-        password: ''
-      }
-      this.router.navigate(['']);
+    if(this.loginObj.email=== '' || this.loginObj.password === ''){
+      alert('Put some valid input')
     }
-    else alert('Wrong credentials');
+    else{
+      const isUserExist = this.signupUser
+                          .find(user => user.email == this.loginObj.email 
+                                        && user.password == this.loginObj.password);
+      // console.log(isUserExist);
+      if(isUserExist != undefined){
+        this.authService.loginUser(isUserExist.userName);
+        alert("Welcome back");
+        this.loginObj = {
+          email: '',
+          password: ''
+        }
+        this.router.navigate(['']);
+      }
+      else alert('Wrong credentials');
+    }
   }
 
   //if refreshed need to load again in signupUser

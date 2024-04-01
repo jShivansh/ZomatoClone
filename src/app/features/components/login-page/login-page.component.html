@@ -13,10 +13,10 @@
                     <form>
                         <label for="chk" aria-hidden="true">Sign up</label>
                         <input type="text" name="txt" placeholder="Your name" [(ngModel)]="signupObj.userName" required>
-                        <input type="email" name="email" placeholder="Email" [(ngModel)]="signupObj.email">
-                        <input type="password" name="pswd" placeholder="Password" [(ngModel)]="signupObj.password">
+                        <input type="email" name="email" placeholder="Email" [(ngModel)]="signupObj.email" required>
+                        <input type="password" name="pswd" placeholder="Password" [(ngModel)]="signupObj.password" required>
                         <button (click)="onSignUp()">Sign up</button>
-                    </form>
+                      </form>
                 </div>
     
                 <div class="login">

@@ -620,40 +620,50 @@ class LoginPageComponent {
         titleService.setTitle('ZomatoClone | Login');
     }
     onSignUp() {
-        const isUserExist = this.signupUser
-            .find(user => user.email == this.signupObj.email
-        // && user.password == this.loginObj.password
-        );
-        if (isUserExist == undefined) {
-            this.signupUser.push(this.signupObj);
-            console.log(this.signupUser);
-            localStorage.setItem('signupUser', JSON.stringify(this.signupUser));
-            this.signupObj = {
-                userName: '',
-                email: '',
-                password: ''
-            };
-            alert('Signed up successfully!!!');
+        if (this.signupObj.userName === '' || this.signupObj.email === '' || this.signupObj.password === '') {
+            alert('Put some valid input');
         }
-        else
-            alert('User already exist!!');
+        else {
+            const isUserExist = this.signupUser
+                .find(user => user.email == this.signupObj.email
+            // && user.password == this.loginObj.password
+            );
+            if (isUserExist == undefined) {
+                this.signupUser.push(this.signupObj);
+                console.log(this.signupUser);
+                localStorage.setItem('signupUser', JSON.stringify(this.signupUser));
+                this.signupObj = {
+                    userName: '',
+                    email: '',
+                    password: ''
+                };
+                alert('Signed up successfully!!!');
+            }
+            else
+                alert('User already exist!!');
+        }
     }
     onLogin() {
-        const isUserExist = this.signupUser
-            .find(user => user.email == this.loginObj.email
-            && user.password == this.loginObj.password);
-        // console.log(isUserExist);
-        if (isUserExist != undefined) {
-            this.authService.loginUser(isUserExist.userName);
-            alert("Welcome back");
-            this.loginObj = {
-                email: '',
-                password: ''
-            };
-            this.router.navigate(['']);
+        if (this.loginObj.email === '' || this.loginObj.password === '') {
+            alert('Put some valid input');
         }
-        else
-            alert('Wrong credentials');
+        else {
+            const isUserExist = this.signupUser
+                .find(user => user.email == this.loginObj.email
+                && user.password == this.loginObj.password);
+            // console.log(isUserExist);
+            if (isUserExist != undefined) {
+                this.authService.loginUser(isUserExist.userName);
+                alert("Welcome back");
+                this.loginObj = {
+                    email: '',
+                    password: ''
+                };
+                this.router.navigate(['']);
+            }
+            else
+                alert('Wrong credentials');
+        }
     }
     //if refreshed need to load again in signupUser
     ngOnInit() {
@@ -664,7 +674,7 @@ class LoginPageComponent {
     }
 }
 LoginPageComponent.ɵfac = function LoginPageComponent_Factory(t) { return new (t || LoginPageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Title"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_core_services_user_login_service__WEBPACK_IMPORTED_MODULE_2__["UserLoginService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"])); };
-LoginPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginPageComponent, selectors: [["app-loginPage"]], decls: 24, vars: 5, consts: [[1, "video-background"], ["autoplay", "", "loop", "", "muted", ""], ["src", "./assets/movie.mp4", "type", "video/mp4"], [1, "otherContent"], [1, "main"], ["type", "checkbox", "id", "chk", "aria-hidden", "true"], [1, "signup"], ["for", "chk", "aria-hidden", "true"], ["type", "text", "name", "txt", "placeholder", "Your name", "required", "", 3, "ngModel", "ngModelChange"], ["type", "email", "name", "email", "placeholder", "Email", 3, "ngModel", "ngModelChange"], ["type", "password", "name", "pswd", "placeholder", "Password", 3, "ngModel", "ngModelChange"], [3, "click"], [1, "login"]], template: function LoginPageComponent_Template(rf, ctx) { if (rf & 1) {
+LoginPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: LoginPageComponent, selectors: [["app-loginPage"]], decls: 24, vars: 5, consts: [[1, "video-background"], ["autoplay", "", "loop", "", "muted", ""], ["src", "./assets/movie.mp4", "type", "video/mp4"], [1, "otherContent"], [1, "main"], ["type", "checkbox", "id", "chk", "aria-hidden", "true"], [1, "signup"], ["for", "chk", "aria-hidden", "true"], ["type", "text", "name", "txt", "placeholder", "Your name", "required", "", 3, "ngModel", "ngModelChange"], ["type", "email", "name", "email", "placeholder", "Email", "required", "", 3, "ngModel", "ngModelChange"], ["type", "password", "name", "pswd", "placeholder", "Password", "required", "", 3, "ngModel", "ngModelChange"], [3, "click"], [1, "login"], ["type", "email", "name", "email", "placeholder", "Email", 3, "ngModel", "ngModelChange"], ["type", "password", "name", "pswd", "placeholder", "Password", 3, "ngModel", "ngModelChange"]], template: function LoginPageComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "video", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "source", 2);
@@ -698,10 +708,10 @@ LoginPageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "label", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Login");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function LoginPageComponent_Template_input_ngModelChange_20_listener($event) { return ctx.loginObj.email = $event; });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "input", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "input", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function LoginPageComponent_Template_input_ngModelChange_21_listener($event) { return ctx.loginObj.password = $event; });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "button", 11);
