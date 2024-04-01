@@ -1,0 +1,59 @@
+<!-- <div class="cart">
+    <h1 mat-dialog-title>Order Summary</h1>
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+        <div mat-dialog-content *ngFor="let item of cartItems">
+            <p>Name: {{ item.name }} | Quantity: {{ item.quantity }} | Price: {{ item.price * item.quantity }}</p>
+        </div>
+        <h3>Grand Total: {{ calculateGrandTotal() }}</h3>
+    </div>
+    <ng-template #emptyCart>
+        <p>Add items to the cart</p>
+    </ng-template>
+</div> -->
+
+<div class="popup-container">
+    <h3>Your cart({{cartItems.length}})</h3>
+    <div *ngFor="let item of cartItems">
+        <div class="items" *ngIf="item.quantity>0">
+            <div class="item-image">
+                <img src={{item.image}} alt={{item.name}}>
+            </div>
+            <div class="item-details">
+                <h3><span>{{item.name}}</span></h3>
+                    <div class="quantityControl">
+                        <!-- <p>Qty: </p> -->
+                        <!-- <button (click)="decreaseQty(item)">-</button> -->
+                        <button mat-icon-button color="accent" (click)="decreaseQty(item)">
+                            <mat-icon>remove</mat-icon>
+                        </button> 
+                        <input type="text" value={{item.quantity}} disabled>
+                        <!-- <button (click)="increaseQty(item)">+</button> -->
+                        <button mat-icon-button color="primary" (click)="increaseQty(item)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                    <!-- <span>{{item.quantity}}  </span> -->
+                    <p>Price: <span>{{item.price | currency:'INR'}}</span></p>
+            </div>
+            <div class="item-price">
+                <h3>{{ item.price * item.quantity | currency:'INR'}}</h3>
+                <!-- <button (click)="deleteItem(item)">Delete</button> -->
+                <button mat-icon-button color="warn" (click)="deleteItem(item)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="grandTotal">
+        <!-- <p>Sub Total: {{ calculateGrandTotal() | currency:'INR'}}</p>
+        <p>gst & other taxes: {{ calculateGrandTotal() *18/100 | currency:'INR'}}</p> -->
+        <h2>Sub Total: {{ calculateGrandTotal() | currency:'INR'}}</h2>
+    </div>
+    <div class="btn">
+        <button mat-raised-button color="primary"
+                mat-dialog-close 
+                (click)="chekcUserLogin()" 
+                *ngIf="cartItems.length>0">Buy</button>
+        <button mat-button color="accent" mat-dialog-close >Close</button>
+    </div>
+</div>

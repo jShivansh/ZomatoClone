@@ -1,0 +1,89 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+  max-height: 5vh;
+  background-color: rgb(246, 232, 227);
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.logo{
+  font-size: xx-large;
+  color: black;
+  font-weight: 1000;
+}
+.logo:hover{
+  transform: scale(1.1);
+}
+
+.actions{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions a{
+  margin: 0 1em;
+  font-size: medium;
+  font-weight: bold;
+}
+.actions a:hover{
+  transform: scale(1.1);
+}
+
+.actions button {
+  position: relative;
+  border: none; 
+  background: none; 
+  padding: 0; 
+}
+.actions button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.cartImg3 {
+  width: 2em; 
+  height: auto; 
+  margin-right: 1em; 
+  vertical-align: middle; 
+}
+
+#counter {
+  position: absolute;
+  top: -0.8em; 
+  right: -1.1em; 
+  background-color: red; 
+  color: white; 
+  border-radius: 50%; 
+  width: 1.2em; 
+  height: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.user-container {
+  position: relative;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 100%;
+  left: 25%;
+  background-color: #eb8f9f;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.2em;
+  display: none;
+}
+
+.user-container:hover .logout-btn {
+  display: block;
+}

@@ -1,0 +1,68 @@
+<!-- <div class="itemContainer">
+    <div class="preference">
+        <div class="preferenceBtn">
+            <input type="radio" value='any' name="any" [(ngModel)]="preference">
+            <label for="filter">All</label>
+        </div>
+        <div class="preferenceBtn">
+            <input type="radio" value='Veg' name="Veg" [(ngModel)]="preference">
+            <label for="filter" id="veg">Veg</label>
+        </div>
+        <div class="preferenceBtn">
+            <input type="radio" value='Non-Veg' name="Non-Veg" [(ngModel)]="preference">
+            <label for="filter" id="nonVeg">Non-veg</label>
+        </div>
+    </div>
+    
+    <div class="cards">
+        <div *ngFor="let items of foodItems" >
+            <app-item-card  [item]="items" *ngIf="preference === 'any' || preference===items.preference"></app-item-card>
+        </div>
+    </div>
+</div> -->
+
+<div class="itemContainer">
+    <!-- <h1>Hello {{userName}}</h1> -->
+    <div class="features">
+        <div class="preference">
+            <div class="preferenceBtn">
+                <input type="radio" value='any' name="preference" [(ngModel)]="preference">
+                <label for="filter">All</label>
+            </div>
+            <div class="preferenceBtn">
+                <input type="radio" value='Veg' name="preference" [(ngModel)]="preference">
+                <label for="filter" id="veg">Veg</label>
+            </div>
+            <div class="preferenceBtn">
+                <input type="radio" value='Non-Veg' name="preference" [(ngModel)]="preference">
+                <label for="filter" id="nonVeg">Non-veg</label>
+            </div>
+        </div>
+        
+        <div class="searchItem">
+            <mat-form-field appearance="outline">
+                <mat-label>Search items...</mat-label>
+                <input matInput [(ngModel)]="findItem" name="searchItem">
+              </mat-form-field>
+        </div>
+    </div>
+    <!-- <div class="cards">
+        <div *ngFor="let item of filteredItems">
+            <app-item-card  [item]="item"></app-item-card>
+        </div>
+    </div> -->
+    <div class="cards">
+        <div *ngIf="filteredItems.length === 0">
+            <p>Sorry. We don't have that right now!!!</p>
+        </div>
+        <div *ngFor="let item of pagedItems">
+            <app-item-card  [item]="item"></app-item-card>
+        </div>
+    </div>
+    <mat-paginator [length]="filteredItems.length"
+                   [pageSize]="pageSize"
+                   (page)="onPageChange($event)">
+                   [pageSizeOptions]="[5, 10, 25, 50, 100]"
+    </mat-paginator>
+    
+</div>

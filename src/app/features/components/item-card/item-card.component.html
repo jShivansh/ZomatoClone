@@ -1,0 +1,17 @@
+<div class="item-card">
+    <p class="offer" *ngIf="randomNumber<25">{{randomNumber}}% off</p>
+    <img src={{item.image}} alt={{item.name}} class="itemImage">
+    <img src={{item.vegNonveg}} alt="" class="top-right">
+    <div class="cardContent">
+        <h3>{{item.name | uppercase}}</h3>
+        <div class="priceRating">
+            <p id="price"><span>{{item.price | currency:'INR'}}</span></p>
+            <p id="rating"><span>{{item.rating}}⭐</span></p>
+        </div>
+    </div>
+        <div class="card-button">
+            <button mat-raised-button color="warn" (click)="openDialog(item)">More Detail</button>
+            <button mat-raised-button color="warn" (click)="openBuyDialog(item)">Buy</button>
+        </div>
+    
+</div>

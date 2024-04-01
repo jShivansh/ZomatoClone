@@ -1,0 +1,44 @@
+.itemContainer{
+    min-height: 100%;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.features{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchItem{
+    margin-right: 5em;
+    margin-top: 2em;
+}
+
+.preference {
+    display: flex;
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+.preferenceBtn {
+    font-weight: bold;
+}
+
+#veg {
+    color: green;
+}
+
+#nonVeg {
+    color: red
+}
+
+@media screen and (max-width: 600px) {
+    .searchItem{
+        margin-right: 1em;
+    }
+}

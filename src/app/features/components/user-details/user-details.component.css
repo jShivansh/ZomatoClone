@@ -1,0 +1,67 @@
+.container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.form-container{
+  padding: 1em;
+  border: 2px solid black;
+  height: auto;
+  /* min-height: 50vh; */
+  width: auto;
+  /* min-width: 40vh; */
+  background-color: rgb(228, 234, 240);
+  margin: 2em;
+  border-radius: 10%;
+  min-height: 60vh;
+  min-width: 50vh;
+}
+
+.userForm{
+  align-items: center;
+  text-align: center;
+}
+
+.form-group-btn{
+  margin-top: 3em;
+}
+  
+  .orderSummary{
+    padding: 1em;
+    border: 2px solid black;
+    height: auto;
+    /* min-height: 50vh; */
+    width: auto;
+    /* min-width: 50vh; */
+    background-color: antiquewhite;
+    margin: 2em;
+    border-radius: 10%;
+    min-height: 60vh;
+    min-width: 50vh;
+  }
+
+  .grandTotalDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .payNowBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* bottom: 1px; */
+    margin-top: 3em;
+  }
+
+  @media screen and (max-width: 720px) {
+    
+    .form-container, .orderSummary{
+      min-height: 40%;
+      min-width: 70%;
+    }
+  }

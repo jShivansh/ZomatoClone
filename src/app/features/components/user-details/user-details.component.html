@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="form-container">
+    <h1>Please enter your details:</h1>
+    <form class="userForm" (ngSubmit)="submitForm()" #userForm="ngForm">
+      <mat-form-field class="form-group">
+        <input matInput placeholder="Full Name" [(ngModel)]="fullName" name="fullName" required>
+      </mat-form-field><br>
+      
+      <mat-form-field class="form-group">
+        <input matInput placeholder="Phone Number" [(ngModel)]="phoneNumber" name="phoneNumber" required type="number">
+      </mat-form-field><br>
+      
+      <mat-form-field class="form-group">
+        <textarea matInput placeholder="Address" [(ngModel)]="address" name="address" required></textarea>
+      </mat-form-field><br>
+      
+      <div class="form-group-btn">
+        <button mat-raised-button color="primary" 
+                type="submit"
+                [disabled]="!userForm.valid" 
+                (click)="submitCheck()">
+                Submit
+            </button>
+      </div>
+    </form>
+  </div>
+  <div class="orderSummary">
+    <h1>Your Order Summary</h1>
+    <div class="grandTotalDiv">
+      <p>Sub Total:</p>
+      <h3>{{grandTotal() | currency:'INR'}}</h3>
+    </div>
+    <div class="grandTotalDiv">
+      <p>Taxes:</p>
+      <h3>{{grandTotal() * 18/100 | currency:'INR'}}</h3>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Promo Code" [(ngModel)]="promoCode" name="promoCode">
+      </mat-form-field>
+    </div>
+    <div class="grandTotalDiv">
+      <p>Grand Total:</p>
+      <h2>
+        <!-- {{grandTotal() + (grandTotal() * 18/100) | currency:'INR'}} -->
+        {{grandTotalPromo() | currency:'INR'}}
+      </h2>
+    </div>
+    <div class="payNowBtn">
+      <button mat-raised-button color="accent" type="submit"                 
+              *ngIf="checker>0"
+              (click)="pay(grandTotalPromo())">
+              Pay Now
+      </button>
+    </div>
+  </div>
+</div>
+  

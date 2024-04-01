@@ -1,0 +1,89 @@
+.item-card {
+    margin: 2em;
+    /* padding: 0.5em; */
+    border-radius: 10%;
+    position: relative;
+    box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.item-card:hover {
+    box-shadow: 0 4px 8px 0 #f8b3a7, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.05);
+}
+
+.itemImage{
+    width: 25em;
+    height: 15em;
+    /* margin: 1em; */
+    border-radius: 10%;
+}
+
+.offer{
+    margin-left: 1px;
+    background-color: yellow;
+    position: absolute;
+    width: 15%;
+    top: 4%;
+    left: 0px;
+    z-index: 1;
+    font-size: small;
+}
+
+/* .cardContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+} */
+
+.cardContent p {
+    margin-left: 1em;
+}
+
+.cardContent span {
+    font-weight: 600;
+}
+
+.item-card h3 {
+    margin-left: 3em;
+    width: 100%;
+    font-weight: bold;
+    text-align: left;
+    
+}
+
+.priceRating {
+    display: flex;
+    justify-content: space-between;
+}
+
+#rating {
+    margin-right: 4em;
+}
+
+#price {
+    margin-left: 4em;
+}
+
+.item-card button {
+    margin-bottom: 1.5em;
+}
+
+.card-button {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    z-index: 1;
+    color: red;
+    height: 1.5em;
+    width: 1.5em;
+  }
+
+
+

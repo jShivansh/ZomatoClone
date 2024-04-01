@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="logo">
+        <a routerLink="/">zomato</a>
+    </div>
+    <div class="actions">
+        <a routerLink="/about">About</a>
+        <ng-container *ngIf="!userLoggedIn; else loggedInUser">
+            <a routerLink="/login">Login</a>
+        </ng-container>
+        <!-- Show username and logout button if user is logged in -->
+        <ng-template #loggedInUser>
+            <div class="user-container">
+                <a (click)="toggleLogout()">{{ userName }}</a>
+                <div class="logout-btn" *ngIf="showLogout">
+                    <button (click)="logout()">Logout</button>
+                </div>
+            </div>
+        </ng-template>
+        <button (click)="opeCart()" >
+            <i class="fa-solid fa-cart-shopping cartImg fa-lg"></i>
+            <!-- <img src="https://banner2.cleanpng.com/20180426/jxq/kisspng-computer-icons-shopping-cart-shopping-cart-decoration-5ae1d7b8251885.901689401524750264152.jpg" alt=""> -->
+            <p id="counter">{{cartItems.length}}</p>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+.popup-container {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.grandTotal {
+    text-align: right;
+    margin-top: 1.5em;
+    margin-right: 1.5em;
+}
+
+.grandTotal h2{
+    font-weight: 900;
+}
+
+.items {
+    margin: 0.5em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 #484544, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.item-image{
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-details{
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.quantityControl {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+input{
+    width: 10%;
+  border-radius: 10%;
+  text-align: center;
+}
+
+
+.item-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1em;
+}
+.item-price h3{
+    margin-top: 1.4em;
+}
+
+    
+
+.item-price h3{
+    font-weight: bolder;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 8em;
+    height: 5.5em;
+    border-radius: 10%;
+}
+
+span {
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 600px) {
+    /* input {
+      width: 100%;
+    } */
+
+    .item-image {
+        display: none;
+      }
+    .quantityControl p{
+        display: none;
+    }
+}
+

@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+    background-color: rgb(246, 232, 227);
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
