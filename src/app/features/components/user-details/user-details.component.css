@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height:100%;
   flex-wrap: wrap;
+  min-height: 100vh;
 }
 
 .form-container{
@@ -56,13 +56,4 @@
     align-items: center;
     /* bottom: 1px; */
     margin-top: 3em;
-  }
-
-  @media screen and (max-width: 1250px) {
-    
-    .form-container, .orderSummary{
-      min-height: 40%;
-      min-width: 70%;
-    }
- 
   }
