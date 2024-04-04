@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { CanActiveService } from 'src/app/core/services/can-active.service';
 import { UserLoginService } from 'src/app/core/services/user-login.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private titleService: Title,
     private authService: UserLoginService,
+    private canActiveService: CanActiveService,
     private router: Router) { 
     titleService.setTitle('ZomatoClone | Login')
   }
@@ -63,6 +65,7 @@ export class LoginPageComponent implements OnInit {
       if(isUserExist != undefined){
         this.authService.loginUser(isUserExist.userName);
         alert("Welcome back");
+        this.canActiveService.loginStatus(true);
         this.loginObj = {
           email: '',
           password: ''

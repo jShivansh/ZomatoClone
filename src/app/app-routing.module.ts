@@ -6,14 +6,17 @@ import { ItemsComponent } from './features/components/items/items.component';
 import { UserDetailsComponent } from './features/components/user-details/user-details.component';
 import { PaymentPageComponent } from './features/components/payment-page/payment-page.component';
 import { LoginPageComponent } from './features/components/login-page/login-page.component';
+import { CanActiveService } from './core/services/can-active.service';
+import { PageNotFoundComponent } from './features/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:'about', component:AboutComponent},
   // {path:'cart', component:CartComponent},
   {path:'', component:ItemsComponent},
-  {path:'userDetails', component:UserDetailsComponent},
-  {path:'payments', component:PaymentPageComponent},
+  {path:'userDetails', component:UserDetailsComponent, canActivate: [CanActiveService]},
+  {path:'payments', component:PaymentPageComponent, canActivate: [CanActiveService]},
   {path:'login', component:LoginPageComponent},
+  {path:'**', component:PageNotFoundComponent}
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { ItemsComponent } from './components/items/items.component';
 import { FormsModule } from '@angular/forms';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { PaymentPageComponent } from './components/payment-page/payment-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
@@ -22,7 +23,8 @@ import { PaymentPageComponent } from './components/payment-page/payment-page.com
     AboutComponent,
     ItemsComponent,
     UserDetailsComponent,
-    PaymentPageComponent
+    PaymentPageComponent,
+    PageNotFoundComponent
   ],
   exports: [
     HomePageComponent,

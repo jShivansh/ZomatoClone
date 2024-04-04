@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from 'src/app/features/components/cart/cart.component';
 import { CartService } from '../../services/cart.service';
 import { UserLoginService } from 'src/app/core/services/user-login.service';
+import { CanActiveService } from '../../services/can-active.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               public cartService: CartService,
-              private authService: UserLoginService) { }
+              private authService: UserLoginService,
+              private canActiveService: CanActiveService) { }
 
   opeCart(){
     this.dialog.open(CartComponent);
@@ -24,6 +26,7 @@ export class HeaderComponent implements OnInit {
 
   userLoggedIn: boolean = false;
   userName: string = '';
+
   ngOnInit(): void {
     this.cartService.cartItem$.subscribe(item => {
       this.cartItems = item;
@@ -37,9 +40,11 @@ export class HeaderComponent implements OnInit {
       this.userName = name;
     });
   }
+
   logout(): void {
     this.authService.logoutUser();
-}
+    this.canActiveService.loginStatus(false);
+  }
 
 showLogout: boolean = false;
 toggleLogout(): void {
